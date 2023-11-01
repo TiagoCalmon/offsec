@@ -1,6 +1,8 @@
 nmap -v -sn 192.168.50.0/24 -oG ping-sweep.txt  # discovering alive hosts
 grep Up ping-sweep.txt | cut -d " " -f 2
 
+nmap -v -p 25  $(grep Up pingSweep.txt | cut -d " " -f 2) 
+
 nmap -sS -sV -O -p- 10.0.2.2 -oG nmapScan.txt   # probe all TCP ports, catch service's banners an try identify services, service version and operational system
 
 
