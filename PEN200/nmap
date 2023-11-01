@@ -5,5 +5,9 @@ nmap -v -p 25  $(grep Up pingSweep.txt | cut -d " " -f 2)
 
 nmap -sS -sV -O -p- 10.0.2.2 -oG nmapScan.txt   # probe all TCP ports, catch service's banners an try identify services, service version and operational system
 
+nmap --script-help http-title
+
+map -v  -p 80,443 --script=http-title  $(grep Up pingSweep.txt | cut -d " " -f 2) -oG httpTitle.txt 
+
 
 
