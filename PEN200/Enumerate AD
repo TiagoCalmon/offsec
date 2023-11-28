@@ -20,5 +20,10 @@ Enumerate permissions and logged on users
     Get-NetSession -ComputerName files04 # -verbose to view permission error. don't work after Windows Server 2019 build 1809
     .\PsLoggedon.exe \\files04 #need remote registry enable
 Enumerate through Service Principal Names
+  cmd
+    setspn -L iis_service
+  PowerShell
+    use powerview
+    
 Enumerate Object Permissions
 Explore Domain Shares
