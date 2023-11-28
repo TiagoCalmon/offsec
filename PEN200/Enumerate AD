@@ -1,0 +1,23 @@
+Enumerate Operating Systems
+  use powerview
+      https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1
+      https://powersploit.readthedocs.io/en/latest/Recon/
+      On kali: locate powerview.ps1
+               /usr/share/powershell-empire/empire/server/data/module_source/situational_awareness/network/powerview.ps1
+               /opt/PowerSploit/Recon
+      send powerview.ps1 to target
+        open CMD
+           Type: powershell -ep bypass
+                 Import-Module .\PowerView.ps1
+                 Execute powerview functions
+                       Get-NetComputer | select name, dnshostname
+                       Get-NetUser |select cn                      
+
+Enumerate permissions and logged on users
+  user powerview
+    Find-LocalAdminAccess # to find computer with admin privilegies
+    Get-NetSession -ComputerName files04 # -verbose to view permission error. don't work after Windows Server 2019 build 1809
+    .\PsLoggedon.exe \\files04 #need remote registry enable
+Enumerate through Service Principal Names
+Enumerate Object Permissions
+Explore Domain Shares
