@@ -1,0 +1,13 @@
+net user /domain
+
+net user jeffadmin /domain
+
+net group /domain
+
+net group "Sales Department" /domain
+
+
+POWERSHEL
+
+  [System.DirectoryServices.ActiveDirectory.Domain]::GetCurrentDomain()  #domain information
+  ([adsi]'').distinguishedName #domain Distinguished Name
