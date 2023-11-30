@@ -49,3 +49,7 @@ Enter-PSSession -ComputerName CLIENTWK220 -Credential $cred
 
 #from kali
 evil-winrm -i 192.168.210.220 -u daveadmin -p "qwertqwertqwert123\!\!"
+
+#block events powershell
+# Open Event Viewer and navigate to the following log location: Applications and Services Logs > Microsoft > Windows > PowerShell > Operational.
+# https://www.techtarget.com/searchwindowsserver/tutorial/Set-up-PowerShell-script-block-logging-for-added-security
