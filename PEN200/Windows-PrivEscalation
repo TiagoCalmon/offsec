@@ -19,3 +19,16 @@ When you gain access to a windows user do steps bellow:
       Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
       
       Get-Process #to enumerate active processes 
+      Get-Process -Name "NonStandardProcess" | Select-Object Path, Modules  #more information about a process
+      Get-WmiObject Win32_Process -Filter "Name='NonStandardProcess.exe'" | Select-Object Name, ExecutablePath #alternative to previous command
+      tasklist /FI "IMAGENAME eq NonStandardProcess.exe" /FO LIST #alternative to previous command
+
+      #Trying find and enumerate important file
+      Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+      Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+      type C:\xampp\passwords.txt
+
+      Get-ChildItem -Path C:\Users\steve\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+      type C:\Users\dave\Desktop\asdf.txt
+
+
