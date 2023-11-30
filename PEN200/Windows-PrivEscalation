@@ -28,7 +28,7 @@ When you gain access to a windows user do steps bellow:
       Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
       type C:\xampp\passwords.txt
 
-      Get-ChildItem -Path C:\Users\steve\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+      Get-ChildItem -Path C:\Users -Include *.ini,*.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
       type C:\Users\dave\Desktop\asdf.txt
 
       #serching information on command history of the powershell
