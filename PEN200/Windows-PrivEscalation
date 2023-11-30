@@ -1,6 +1,21 @@
 When you gain access to a windows user do steps bellow:
 
 1-whoami   #to discover who you are, if you are admin it's game over
-2-whoami /group
+2-whoami /groups
 3-whoami /user
 4-whoami /priv
+5-if possible call a powershell session:
+      powershell -ep bypass
+      Get-LocalUser   #to enumerate interesting Local users
+      Get-LocalGroup  #to enumerate insteresting Local groups
+      Get-LocalGroupMember groupname #to list local group members
+      systeminfo #to enumerate some important information about the system, as: OS name and version, hostname, architeture etc
+      ipconfig /all #to enumerate ip addresses and discovering new networks to pivot
+      route print #complement to previous command
+      netstat -ano #to enumerame and discover open ports and active services 
+
+      #to enumerate installed software, it's important review dowonload folders too
+      Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname 
+      Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+      
+      Get-Process #to enumerate active processes 
