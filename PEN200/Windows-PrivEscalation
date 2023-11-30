@@ -32,3 +32,6 @@ When you gain access to a windows user do steps bellow:
       type C:\Users\dave\Desktop\asdf.txt
 
 
+
+
+runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
