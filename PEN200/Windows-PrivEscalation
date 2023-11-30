@@ -1,0 +1,6 @@
+When you gain access to a windows user do steps bellow:
+
+1-whoami   #to discover who you are, if you are admin it's game over
+2-whoami /group
+3-whoami /user
+4-whoami /priv
