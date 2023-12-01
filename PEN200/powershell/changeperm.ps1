@@ -1,4 +1,4 @@
-$Object = 'path\to\top_folder_or_file'
+$Object = 'C:\Users\daveadmin'
 $ACL = get-acl $Object
 # pay attention to first property, the username
 $Permission = "dave2", "FullControl", "ContainerInherit,ObjectInherit", "None" , "Allow"
