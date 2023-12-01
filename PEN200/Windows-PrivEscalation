@@ -36,8 +36,10 @@ When you gain access to a windows user do steps bellow:
       (Get-PSReadlineOption).HistorySavePath
       type C:\Users\dave\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 
+#Service Binary hijacking
 
-
+      Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} #enumerate running service
+      icacls "C:\xampp\mysql\bin\mysqld.exe" #to verify if we have permission to do the substitution of file
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
