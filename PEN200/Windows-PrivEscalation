@@ -66,6 +66,8 @@ When you gain access to a windows user do steps bellow:
             #6. The directories that are listed in the PATH environment variable.
       Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}  #enumerate running service and identify vulnerable service
       icacls .\Documents\BetaServ.exe # to confirm that we don't have permission to change binario, if you have go to #Service Binary hijacking
+      # get and start procmon64.exe (sysinternals suite), identify missing DLL on changeable paths
+      $env:path
       
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
