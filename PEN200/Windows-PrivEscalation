@@ -75,6 +75,13 @@ When you gain access to a windows user do steps bellow:
       Restart-Service BetaService
       net user
       net localgroup administrators
+
+#Unquoted Service Paths
+      #C:\Program Files\My Program\My Service\service.exe
+      #C:\Program.exe
+      #C:\Program Files\My.exe
+      #C:\Program Files\My Program\My.exe
+      #C:\Program Files\My Program\My service\service.exe
       
       
 
