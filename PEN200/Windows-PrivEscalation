@@ -130,7 +130,7 @@ When you gain access to a windows user do steps bellow:
 
 runas /user:"richmond" "powershell -ep bypass"   # GothicLifeStyle1337!
 runas /user:"daveadmin" "powershell -ep bypass"   # qwertqwertqwert123!!
-runas /user:"dave2" "powershell -ep bypass" # password123!
+runas /user:"dave2" "powershell -ep bypass" # Password123!
 
 #powershell login
 $password = ConvertTo-SecureString "qwertqwertqwert123!!" -AsPlainText -Force
