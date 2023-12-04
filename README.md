@@ -1,1 +1,1 @@
-# Notes about Offsec PEN-200 training for to help in certification exam.
+# Notes about Offsec PEN-200 training for helping in certification exam.
