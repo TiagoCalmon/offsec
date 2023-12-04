@@ -2,7 +2,8 @@
 
 //Compile instructions
 //On Kali execute:
-//x86_64-w64-mingw32-gcc adduser.c --shared -o .dll
+//x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
+//python3 -m http.server [port]
 
 int main ()
 {
