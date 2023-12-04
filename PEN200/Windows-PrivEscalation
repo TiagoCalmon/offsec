@@ -4,7 +4,7 @@ When you gain access to a windows user do steps bellow:
 2-whoami /groups
 3-whoami /user
 4-whoami /priv
-5-if possible call a powershell session:
+5-if possible, call a powershell session:
       powershell -ep bypass
       Get-LocalUser   #to enumerate interesting Local users
       Get-LocalGroup  #to enumerate insteresting Local groups
@@ -109,6 +109,13 @@ When you gain access to a windows user do steps bellow:
       net user
       net localgroup administrators
 
+#Scheduled Tasks
+      #As which user account (principal) does this task get executed?
+      #What triggers are specified for the task?
+      #What actions are executed when one or more of these triggers are met?
+
+      Get-ScheduledTask #powershlle      
+      schtasks /query /fo LIST /v #CMD add '|more' to page
       
       
 
