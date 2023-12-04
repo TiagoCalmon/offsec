@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include <windows.h>
 
+//Compile instructions
+//On Kali execute:
+//x86_64-w64-mingw32-gcc myDLL.cpp --shared -o myDLL.dll
+
 BOOL APIENTRY DllMain(
 HANDLE hModule,// Handle to DLL module
 DWORD ul_reason_for_call,// Reason for calling function
