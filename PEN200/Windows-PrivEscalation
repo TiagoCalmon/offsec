@@ -31,6 +31,9 @@ When you gain access to a windows user do steps bellow:
       Get-ChildItem -Path C:\Users -Include *.ini,*.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
       type C:\Users\dave\Desktop\asdf.txt
 
+      Get-ChildItem -Path C:\Services\ -Include *.ini,*.txt,*.pdf,*.xls,*.xlsx,*.log,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+      C:\Services\EnterpriseServiceLog.log
+
       #serching information on command history of the powershell
       Get-History
       (Get-PSReadlineOption).HistorySavePath
